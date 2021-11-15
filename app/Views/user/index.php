@@ -39,7 +39,7 @@
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
                             <td>
-                                <img src="/img/nana.jpg" class="img-user" alt="...">
+                                <img src="/img/<?= $s['foto_profil']; ?>" class="img-user" alt="...">
                             </td>
                             <td><?= $s['nama']; ?></td>
                             <td><?= $s['username']; ?></td>

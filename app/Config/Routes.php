@@ -34,7 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 $routes->get('/user', 'User::index', ['filter' => 'auth']);
-$routes->get('/user/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
+$routes->get('/user/create', 'User::createUser', ['filter' => 'auth']);
+// $routes->get('/user/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
 
 
 

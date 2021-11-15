@@ -26,7 +26,7 @@ class UsersModel extends Model
     public function getUser($id = false)
     {
         if ($id == false) {
-            return $this->db->table('listuser')
+            return $this->db->table('list_user')
                 ->get()->getResultArray();
         }
 
