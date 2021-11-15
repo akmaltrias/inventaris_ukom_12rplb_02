@@ -12,10 +12,14 @@
     <!--My CSS-->
     <link rel="stylesheet" href="/css/style.css">
 
-    <title><?= $title; ?>| Web Inventory</title>
+    <!-- Icon -->
+    <link rel="icon" href="/img/icon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
+    <title><?= $title; ?> | Web Inventory</title>
 </head>
 
-<body>
+<body class="bg-light h-100">
     <?= $this->renderSection('content'); ?>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

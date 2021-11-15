@@ -50,7 +50,7 @@ class Login extends BaseController
                 ];
 
                 session()->set($session_user);
-                return redirect()->to(base_url() . '/dashboard');
+                return redirect()->to(base_url() . '/user');
             } else {
                 session()->setFlashdata('pesan', 'Password Anda Salah');
                 return redirect()->to(base_url() . '/login');

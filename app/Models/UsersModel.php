@@ -22,4 +22,14 @@ class UsersModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
+
+    public function getUser($id = false)
+    {
+        if ($id == false) {
+            return $this->db->table('listuser')
+                ->get()->getResultArray();
+        }
+
+        return $this->where(['id_user' => $id])->first();
+    }
 }
