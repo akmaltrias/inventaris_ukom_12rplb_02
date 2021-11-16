@@ -11,19 +11,19 @@
                 <h1 class="mb-3 fw-bold">Tambah User</h1>
                 <div class="col-6">
                     <form action="/user/saveCreate" method="post" enctype="multipart/form-data">
-                        <div class="mb-3">
+                        <div class="from-group row mb-3">
                             <label for="InputFornama" class="form-label">Nama Lengkap</label>
                             <input type="text" name="nama" class="form-control" id="InputForName">
                         </div>
-                        <div class="mb-3">
+                        <div class="from-group row mb-3">
                             <label for="InputForUsername" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="InputForEmail">
                         </div>
-                        <div class="mb-3">
+                        <div class="from-group row mb-3">
                             <label for="InputForPassword" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" id="InputForPassword">
                         </div>
-                        <div class="mb-3">
+                        <div class="from-group row mb-3">
                             <label for="InputForConfPassword" class="form-label">Konfirmasi Password</label>
                             <input type="password" name="confpassword" class="form-control" id="InputForConfPassword">
                         </div>
@@ -34,7 +34,7 @@
                         <div class="col-sm-10">
                             <img src="/img/default.png" class="img-thumbnail img-preview" width="100px">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="foto_profil" name="foto_profil" onchange="previewImg()">
+                                <input type="file" class="custom-file-input  <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?> " id="sampul" name="sampul" value="<?= old('sampul'); ?>" id="sampul" name="sampul" onchange="previewImg()">
                             </div>
                         </div>
                     </div>

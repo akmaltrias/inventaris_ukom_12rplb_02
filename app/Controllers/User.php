@@ -35,7 +35,8 @@ class User extends BaseController
     public function createUser()
     {
         $data = [
-            'title' => 'Tambah User'
+            'title' => 'Tambah User',
+            'validation' => \Config\Services::validation()
         ];
         return view('user/create', $data);
     }
@@ -90,5 +91,30 @@ class User extends BaseController
 
             return redirect()->to(base_url() . '/user/create')->withInput();
         }
+
+        //ambil gambar
+        $fileProfil = $this->request->getFile('foto_profil');
+        //apakah tidak ada gambar
+        if ($fileProfil->getError() == 4) {
+            $namaProfil = 'default.png';
+        } else {
+            //generate nama Profil
+            $namaProfil = $fileProfil->getRandomName();
+            //pindahkan file ke folder img 
+            $fileProfil->move('img', $namaProfil);
+        }
+
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'username' => $this->request->getVar('username'),
+            'penerbit' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'foto_profil' => $namaProfil,
+        ];
+
+        dd($data);
+
+        session()->setFlashdata('pesan', 'data berhasil ditambahkan');
+
+        return redirect()->to('http://localhost:8080/komik');
     }
 }
