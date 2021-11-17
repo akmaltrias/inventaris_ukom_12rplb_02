@@ -14,7 +14,7 @@ class UsersModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user', 'nama', 'username', 'password', 'level'];
+    protected $allowedFields    = ['id_user', 'nama', 'username', 'password', 'level', 'foto_profil'];
 
     // Dates
     protected $useTimestamps = false;
@@ -31,5 +31,12 @@ class UsersModel extends Model
         }
 
         return $this->where(['id_user' => $id])->first();
+    }
+
+    public function getNewId()
+    {
+        $query = $this->db->query("SELECT newkodeuser()");
+        $row = $query->getRow();
+        return $row;
     }
 }

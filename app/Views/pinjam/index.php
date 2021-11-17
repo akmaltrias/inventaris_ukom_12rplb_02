@@ -9,12 +9,12 @@
         <div class="container my-5 ms-auto bg-white p-3">
             <div class="row">
                 <div class="col">
-                    <h1 class="fw-bold">Data User</h1>
+                    <h1 class="fw-bold">Data Peminjaman</h1>
                 </div>
                 <div class="col d-flex justify-content-end">
                     <button class="btn btn-col m-1" type="button">
                         <img src="https://img.icons8.com/ios-glyphs/25/ffffff/add.png" />
-                        <a href="/user/create" class="text-decoration-none text-white">
+                        <a href="pinjam/create" class="text-decoration-none text-white">
                             Tambah
                         </a>
                     </button>
@@ -29,31 +29,31 @@
             </div>
 
             <!-- Table -->
-            <table class="table table-striped  align-middle">
+            <table class="table table-striped  align-middle mt-3">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"></th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Level</th>
+                        <th scope="col">Nama Peminjam</th>
+                        <th scope="col">Barang Dipinjam</th>
+                        <th scope="col">Jumlah Pinjam</th>
+                        <th scope="col">Tanggal Pinjam</th>
+                        <th scope="col">Tanggal Kembali</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($user as $s) : ?>
+                    <?php foreach ($pinjam as $p) : ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td>
-                                <img src="/img/<?= $s['foto_profil']; ?>" class="img-user" alt="...">
-                            </td>
-                            <td><?= $s['nama']; ?></td>
-                            <td><?= $s['username']; ?></td>
-                            <td><?= $s['level']; ?></td>
+                            <td><?= $p['nama']; ?></td>
+                            <td><?= $p['nama_barang']; ?></td>
+                            <td><?= $p['jml_pinjam']; ?></td>
+                            <td><?= $p['tgl_pinjam']; ?></td>
+                            <td><?= $p['tgl_kembali']; ?></td>
                             <td>
                                 <button class="btn btn-sm">
-                                    <a href="/user/detail/<?= $s['id_user']; ?>">
+                                    <a href="#">
                                         <img src="https://img.icons8.com/ios-glyphs/15/000000/visible.png" />
                                     </a>
                                 </button>

@@ -29,7 +29,7 @@
 
     <script>
         function previewImg() {
-            const sampul = document.querySelector('#sampul');
+            const sampul = document.querySelector('#foto_profil');
             const sampulLabel = document.querySelector('.custom-file-label');
             const imgPreview = document.querySelector('.img-preview');
 

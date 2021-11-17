@@ -12,9 +12,15 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="/pinjam" class="nav-link text-white">
                 <i class="bi-archive-fill me-1"></i>
                 Peminjaman
+            </a>
+        </li>
+        <li>
+            <a href="/log" class="nav-link text-white">
+                <i class="bi bi-clock-fill white"></i>
+                Log Peminjaman
             </a>
         </li>
     </ul>

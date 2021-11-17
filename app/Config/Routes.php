@@ -31,11 +31,22 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
+
+$routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
-$routes->get('/user', 'User::index', ['filter' => 'auth']);
+
+$routes->get('/pinjam', 'PinjamBarang::index', ['filter' => 'auth']);
+$routes->get('/pinjam/create', 'PinjamBarang::createPinjam', ['filter' => 'auth']);
+
+
+$routes->get('/', 'User::index', ['filter' => 'auth']);
 $routes->get('/user/create', 'User::createUser', ['filter' => 'auth']);
-// $routes->get('/user/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
+$routes->get('/user/detail/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
+$routes->get('/user/hapus/(:segment)', 'User::delete/$1', ['filter' => 'auth']);
+
+$routes->get('/log', 'AktivitasPinjam::index', ['filter' => 'auth']);
+
+
 
 
 
