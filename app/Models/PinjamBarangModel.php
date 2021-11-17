@@ -28,18 +28,4 @@ class PinjamBarangModel extends Model
         return $this->db->table('peminjaman')
             ->get()->getResultArray();
     }
-
-    public function insert_pinjam($peminjam, $barang_pinjam, $jumlah)
-    {
-        //         $a_procedure = "CALL add_foobar (?,?,?)";
-        // $a_result = $this->db->query( $a_procedure, array('first'=>'Foo','last'=>'Bar’,'mood'=>'Testy') );
-
-        // $procedure = "CALL pinjam_barang(?,?,?)";
-        $data = array('in_peminjam' => $peminjam, 'in_idbarangpinjam' => $barang_pinjam, 'in_jmlpinjam' => $jumlah);
-        dd($data);
-
-        $query = $this->db->query("CALL pinjam_barang(?,?,?)",);
-        $data = $query->getRow();
-        return $data;
-    }
 }

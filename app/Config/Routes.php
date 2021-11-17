@@ -42,6 +42,7 @@ $routes->get('/pinjam/create', 'PinjamBarang::createPinjam', ['filter' => 'auth'
 $routes->get('/', 'User::index', ['filter' => 'auth']);
 $routes->get('/user/create', 'User::createUser', ['filter' => 'auth']);
 $routes->get('/user/detail/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
+$routes->get('/user/update/(:segment)', 'User::updateUser/$1', ['filter' => 'auth']);
 $routes->get('/user/hapus/(:segment)', 'User::delete/$1', ['filter' => 'auth']);
 
 $routes->get('/log', 'AktivitasPinjam::index', ['filter' => 'auth']);

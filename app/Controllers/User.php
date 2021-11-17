@@ -141,6 +141,82 @@ class User extends BaseController
         return redirect()->to('http://localhost:8080/user');
     }
 
+    public function updateUser($id)
+    {
+        $data = [
+            'title' => 'Edit User',
+            'validation' => \Config\Services::validation(),
+            'user' => $this->user->getUser($id)
+        ];
+
+        return view('user/update', $data);
+    }
+
+    public function saveUpdate($id)
+    {
+        //untuk mengecek judul
+        $userLama = $this->user->getUser($id);
+        if ($userLama['username'] == $this->request->getVar('username')) {
+            $rule_username = 'required';
+        } else {
+            $rule_username = 'required|is_unique[user.username]';
+        }
+
+        if (!$this->validate([
+            'username' =>
+            [
+                'rules' => $rule_username,
+                'errors' =>
+                [
+                    'required' => '{field} harus diisi',
+                    'is_unique' => '{field} sudah terdaftar'
+                ]
+            ],
+            'foto_profil' =>
+            [
+                'rules' => 'is_image[foto_profil]|mime_in[foto_profil,image/jpg,image/jpeg,image/png]',
+                'errors' =>
+                [
+                    'is_image' => 'File Yang Dipilih Bukan Gambar',
+                    'mime_in' => 'File Yang Dipilih Bukan Gambar'
+                ]
+            ]
+        ])) {
+            return redirect()->to(base_url() . '/user/update/' . $userLama['id_user'])->withInput();
+        }
+
+        //ambil gambar
+        $fileFoto = $this->request->getFile('foto_profil');
+
+        //cek gambar apakah tetap gambar lama
+        if ($fileFoto->getError() == 4) {
+            $namaSampul = $this->request->getVar('fotoLama');
+        } else {
+            //generate nama sampul baru
+            $namaSampul = $fileFoto->getRandomName();
+            //pindahkan file ke folder img 
+            $fileFoto->move('img', $namaSampul);
+            //hapus file lama
+            $user = $this->user->find($id);;
+            //hapus gambar dari folder img
+            unlink('img/' . $user['foto_profil']);
+        }
+
+        $data = [
+            'id_user' => $this->request->getVar('id_user'),
+            'level' => $this->request->getVar('level'),
+            'nama' => $this->request->getVar('nama'),
+            'password' => $this->request->getVar('password'),
+            'username' => $this->request->getVar('username'),
+            'foto_profil' => $namaSampul,
+        ];
+
+        $this->user->save($data);
+
+        session()->setFlashdata('pesan', 'data berhasil diupdate');
+        return redirect()->to(base_url() . '/user');
+    }
+
     public function delete($id)
     {
         //cari gambar dari id

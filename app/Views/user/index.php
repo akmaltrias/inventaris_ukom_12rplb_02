@@ -58,7 +58,9 @@
                                     </a>
                                 </button>
                                 <button class="btn btn-sm">
-                                    <img src="https://img.icons8.com/ios-glyphs/15/000000/pencil--v1.png" />
+                                    <a href="/user/update/<?= $s['id_user']; ?>">
+                                        <img src="https://img.icons8.com/ios-glyphs/15/000000/pencil--v1.png" />
+                                    </a>
                                 </button>
                             </td>
                         </tr>
