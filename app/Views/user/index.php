@@ -33,7 +33,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"></th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Username</th>
                         <th scope="col">Level</th>

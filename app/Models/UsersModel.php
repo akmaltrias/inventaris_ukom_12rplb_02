@@ -33,6 +33,16 @@ class UsersModel extends Model
         return $this->where(['id_user' => $id])->first();
     }
 
+    public function getUserDetail($id = false)
+    {
+        if ($id == false) {
+            return $this->db->table('list_user')
+                ->get()->getResultArray();
+        }
+
+        return $this->db->table('list_user')->where(['id_user' => $id])->get()->getRowArray();
+    }
+
     public function getNewId()
     {
         $query = $this->db->query("SELECT newkodeuser()");

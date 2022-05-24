@@ -26,7 +26,7 @@ class User extends BaseController
     {
         $data = [
             'title' => 'Detail User',
-            'user' => $this->user->getUser($id)
+            'user' => $this->user->getUserDetail($id)
         ];
 
         return view('user/detail', $data);

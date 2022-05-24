@@ -25,7 +25,7 @@ class LogPinjamModel extends Model
 
     public function getLogPinjam()
     {
-        return $this->db->table('log_aktivitas_peminjaman')
+        return $this->db->table('log_aktivitas_peminjaman')->orderBy('waktu', 'DESC')
             ->get()->getResultArray();
     }
 }

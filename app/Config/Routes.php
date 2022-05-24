@@ -35,11 +35,11 @@ $routes->setAutoRoute(true);
 $routes->get('/login', 'Login::index');
 $routes->get('/logout', 'Login::logout');
 
+$routes->get('/user', 'User::index', ['filter' => 'auth']);
 $routes->get('/pinjam', 'PinjamBarang::index', ['filter' => 'auth']);
 $routes->get('/pinjam/create', 'PinjamBarang::createPinjam', ['filter' => 'auth']);
 
 
-$routes->get('/', 'User::index', ['filter' => 'auth']);
 $routes->get('/user/create', 'User::createUser', ['filter' => 'auth']);
 $routes->get('/user/detail/(:segment)', 'User::getDetailUser/$1', ['filter' => 'auth']);
 $routes->get('/user/update/(:segment)', 'User::updateUser/$1', ['filter' => 'auth']);

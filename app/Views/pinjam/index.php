@@ -13,8 +13,8 @@
                 </div>
                 <div class="col d-flex justify-content-end">
                     <button class="btn btn-col m-1" type="button">
-                        <img src="https://img.icons8.com/ios-glyphs/25/ffffff/add.png" />
                         <a href="pinjam/create" class="text-decoration-none text-white">
+                            <img src="https://img.icons8.com/ios-glyphs/25/ffffff/add.png" />
                             Tambah
                         </a>
                     </button>
